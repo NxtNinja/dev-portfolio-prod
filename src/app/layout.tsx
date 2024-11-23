@@ -1,16 +1,16 @@
 import { ReactNode } from "react";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import { Outfit } from "next/font/google";
+import { Sulphur_Point } from "next/font/google";
 import ThemeProvider from "@/components/providers/ThemeProvider";
 
 type RootLayoutProps = Readonly<{
   children: ReactNode;
 }>;
 
-const outfit = Outfit({
+const sulphur = Sulphur_Point({
   subsets: ["latin"],
-  weight: "500",
+  weight: "400",
 });
 
 const RootLayout = ({ children }: RootLayoutProps) => {
@@ -19,7 +19,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
       lang="en"
       suppressHydrationWarning
     >
-      <body className={outfit.className}>
+      <body className={sulphur.className}>
         <ThemeProvider
           attribute={"class"}
           defaultTheme="light"
