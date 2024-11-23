@@ -1,3 +1,4 @@
+import Hero from "@/components/Hero";
 import { indexPage } from "@/lib/seoData";
 import { Metadata } from "next";
 
@@ -8,7 +9,7 @@ export const generateMetadata = (): Metadata => {
 const page = () => {
   return (
     <>
-      <div className="grid place-items-center"></div>
+      <Hero />
     </>
   );
 };
