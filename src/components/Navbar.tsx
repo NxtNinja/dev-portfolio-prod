@@ -1,29 +1,27 @@
 "use client";
 
 import {
-  Sun,
-  House,
-  Settings,
-  Code,
-  AtSign,
-  Briefcase,
-  Moon,
-  AlignJustify,
-  X,
-} from "lucide-react";
-import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import {
+  AlignJustify,
+  AtSign,
+  Briefcase,
+  Code,
+  House,
+  Settings,
+  X,
+} from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import SwitchTheme from "./SwitchTheme";
 
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
-  const [isDark, setDark] = useState(false);
   const pathname = usePathname();
 
   const navItems = [
@@ -35,86 +33,74 @@ const Navbar = () => {
   ];
   return (
     <>
-      <div className="flex flex-col justify-between items-center p-5 lg:px-24 relative gap-4">
-        <div className="border sticky shadow-sm bg-slate-50 h-full w-full p-3 rounded-full flex justify-between items-center px-10">
-          <div className="flex items-center gap-2">
-            <div className="lg:hidden block w-fit h-fit p-0">
-              {/* <Hamburger toggled={isOpen} toggle={setOpen} size={25} rounded /> */}
-              {isOpen ? (
-                <X
-                  onClick={() => setOpen((prev) => !prev)}
-                  className="cursor-pointer"
-                />
-              ) : (
-                <AlignJustify
-                  onClick={() => setOpen((prev) => !prev)}
-                  className="cursor-pointer"
-                />
-              )}
+      <header className="mx-auto max-w-screen-lg px-6">
+        <div className="relative my-6 flex flex-col items-center justify-between gap-4">
+          <div className="sticky flex w-full items-center justify-between rounded-full border border-foreground/20 bg-background px-10 py-3 shadow-sm">
+            <div className="flex items-center gap-2">
+              <div className="flex md:hidden">
+                {/* <Hamburger toggled={isOpen} toggle={setOpen} size={25} rounded /> */}
+                {isOpen ? (
+                  <X
+                    onClick={() => setOpen((prev) => !prev)}
+                    className="cursor-pointer"
+                  />
+                ) : (
+                  <AlignJustify
+                    onClick={() => setOpen((prev) => !prev)}
+                    className="cursor-pointer"
+                  />
+                )}
+              </div>
+              <p className="">Priyangsu B.</p>
             </div>
-            <p className="">Priyangsu B.</p>
+            <div className="hidden items-center justify-center gap-16 md:flex">
+              {navItems.map((item, index) => (
+                <TooltipProvider key={index}>
+                  <Tooltip>
+                    <TooltipTrigger>
+                      <Link href={item.link}>
+                        <div
+                          className={`${
+                            pathname === item.link
+                              ? "font-bold text-blue-500"
+                              : "text-foreground"
+                          }`}
+                        >
+                          {item.icon}
+                        </div>
+                      </Link>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{item.name}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              ))}
+            </div>
+            <div className="">
+              <SwitchTheme />
+            </div>
           </div>
-          <div className="lg:flex justify-center items-center gap-16 hidden">
-            {navItems.map((item, index) => (
-              <TooltipProvider key={index}>
-                <Tooltip>
-                  <TooltipTrigger>
-                    <Link href={item.link}>
-                      <div
-                        className={`${
-                          pathname === item.link
-                            ? "text-blue-500 font-bold"
-                            : "text-gray-800"
-                        }`}
-                      >
-                        {item.icon}
-                      </div>
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>{item.name}</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            ))}
-          </div>
-          <div className="">
-            {isDark ? (
-              <div
-                onClick={() => setDark((prev) => !prev)}
-                className="cursor-pointer"
-              >
-                <Moon />
-              </div>
-            ) : (
-              <div
-                onClick={() => setDark((prev) => !prev)}
-                className="cursor-pointer"
-              >
-                <Sun />
-              </div>
-            )}
-          </div>
+          {isOpen && (
+            <div className="sticky flex h-full w-full flex-col gap-5 rounded-2xl border bg-slate-50 p-3 px-12 shadow-sm lg:hidden lg:px-10">
+              {navItems.map((item, index) => (
+                <Link
+                  href={item.link}
+                  key={index}
+                  className={`flex items-center gap-2 rounded-full p-3 ${
+                    pathname === item.link
+                      ? "bg-blue-500 text-white"
+                      : "text-gray-800"
+                  }`}
+                >
+                  <div>{item.icon}</div>
+                  <p className="">{item.name}</p>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
-        {isOpen && (
-          <div className="border lg:hidden sticky shadow-sm rounded-2xl bg-slate-50 h-full w-full flex flex-col gap-5 p-3 px-12 lg:px-10">
-            {navItems.map((item, index) => (
-              <Link
-                href={item.link}
-                key={index}
-                className={`flex items-center gap-2 rounded-full p-3 ${
-                  pathname === item.link
-                    ? "bg-blue-500 text-white"
-                    : "text-gray-800"
-                }`}
-              >
-                <div>{item.icon}</div>
-                <p className="">{item.name}</p>
-              </Link>
-            ))}
-          </div>
-        )}
-      </div>
+      </header>
     </>
   );
 };
