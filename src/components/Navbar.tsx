@@ -42,12 +42,12 @@ const Navbar = () => {
                 {isOpen ? (
                   <X
                     onClick={() => setOpen((prev) => !prev)}
-                    className="cursor-pointer"
+                    className="cursor-pointer text-background"
                   />
                 ) : (
                   <AlignJustify
                     onClick={() => setOpen((prev) => !prev)}
-                    className="cursor-pointer"
+                    className="cursor-pointer text-background"
                   />
                 )}
               </div>
@@ -82,7 +82,7 @@ const Navbar = () => {
             </div>
           </div>
           {isOpen && (
-            <div className="sticky flex h-full w-full flex-col gap-5 rounded-2xl border bg-slate-50 p-3 px-12 shadow-sm lg:hidden lg:px-10">
+            <div className="sticky flex h-full w-full flex-col gap-5 rounded-2xl border bg-foreground p-3 px-12 shadow-sm lg:hidden lg:px-10">
               {navItems.map((item, index) => (
                 <Link
                   href={item.link}
@@ -90,7 +90,7 @@ const Navbar = () => {
                   className={`flex items-center gap-2 rounded-full p-3 ${
                     pathname === item.link
                       ? "bg-blue-500 text-white"
-                      : "text-gray-800"
+                      : "text-background"
                   }`}
                 >
                   <div>{item.icon}</div>
