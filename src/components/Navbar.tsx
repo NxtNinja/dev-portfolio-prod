@@ -20,7 +20,6 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
@@ -81,58 +80,40 @@ const Navbar = () => {
           </div>
           <div className="">
             {isDark ? (
-              <motion.div
-                key="moon"
-                initial={{ opacity: 0, rotate: -180 }}
-                animate={{ opacity: 1, rotate: 0 }}
-                exit={{ opacity: 0, rotate: 180 }}
-                transition={{ duration: 0.3 }}
+              <div
                 onClick={() => setDark((prev) => !prev)}
                 className="cursor-pointer"
               >
                 <Moon />
-              </motion.div>
+              </div>
             ) : (
-              <motion.div
-                key="sun"
-                initial={{ opacity: 0, rotate: 180 }}
-                animate={{ opacity: 1, rotate: 0 }}
-                exit={{ opacity: 0, rotate: -180 }}
-                transition={{ duration: 0.5 }}
+              <div
                 onClick={() => setDark((prev) => !prev)}
                 className="cursor-pointer"
               >
                 <Sun />
-              </motion.div>
+              </div>
             )}
           </div>
         </div>
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ y: -100, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -100, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="border lg:hidden sticky shadow-sm rounded-2xl bg-slate-50 h-full w-full flex flex-col gap-5 p-3 px-12 lg:px-10"
-            >
-              {navItems.map((item, index) => (
-                <Link
-                  href={item.link}
-                  key={index}
-                  className={`flex items-center gap-2 rounded-full p-3 ${
-                    pathname === item.link
-                      ? "bg-blue-500 text-white"
-                      : "text-gray-800"
-                  }`}
-                >
-                  <div>{item.icon}</div>
-                  <p className="">{item.name}</p>
-                </Link>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {isOpen && (
+          <div className="border lg:hidden sticky shadow-sm rounded-2xl bg-slate-50 h-full w-full flex flex-col gap-5 p-3 px-12 lg:px-10">
+            {navItems.map((item, index) => (
+              <Link
+                href={item.link}
+                key={index}
+                className={`flex items-center gap-2 rounded-full p-3 ${
+                  pathname === item.link
+                    ? "bg-blue-500 text-white"
+                    : "text-gray-800"
+                }`}
+              >
+                <div>{item.icon}</div>
+                <p className="">{item.name}</p>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </>
   );
