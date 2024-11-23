@@ -1,7 +1,7 @@
 const page = () => {
   return (
     <>
-      <div className="grid place-items-center h-dvh">Priyangsu Banik</div>
+      <div className="grid place-items-center"></div>
     </>
   );
 };
