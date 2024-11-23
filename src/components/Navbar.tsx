@@ -8,6 +8,8 @@ import {
   AtSign,
   Briefcase,
   Moon,
+  AlignJustify,
+  X,
 } from "lucide-react";
 import {
   Tooltip,
@@ -17,7 +19,6 @@ import {
 } from "@/components/ui/tooltip";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Cross as Hamburger } from "hamburger-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -36,10 +37,21 @@ const Navbar = () => {
   return (
     <>
       <div className="flex flex-col justify-between items-center p-5 lg:px-24 relative gap-4">
-        <div className="border sticky shadow-sm bg-slate-50 h-full w-full lg:p-3 rounded-full flex justify-between items-center px-9 lg:px-10">
+        <div className="border sticky shadow-sm bg-slate-50 h-full w-full p-3 rounded-full flex justify-between items-center px-10">
           <div className="flex items-center gap-2">
             <div className="lg:hidden block w-fit h-fit p-0">
-              <Hamburger toggled={isOpen} toggle={setOpen} size={25} rounded />
+              {/* <Hamburger toggled={isOpen} toggle={setOpen} size={25} rounded /> */}
+              {isOpen ? (
+                <X
+                  onClick={() => setOpen((prev) => !prev)}
+                  className="cursor-pointer"
+                />
+              ) : (
+                <AlignJustify
+                  onClick={() => setOpen((prev) => !prev)}
+                  className="cursor-pointer"
+                />
+              )}
             </div>
             <p className="">Priyangsu B.</p>
           </div>
