@@ -35,7 +35,7 @@ const Navbar = () => {
     <>
       <header className="mx-auto max-w-screen-lg px-6">
         <div className="relative my-6 flex flex-col items-center justify-between gap-4">
-          <div className="sticky flex w-full items-center justify-between rounded-full border border-foreground/20 bg-background px-10 py-3 shadow-sm">
+          <div className="sticky flex w-full items-center justify-between rounded-full border border-background/20 bg-foreground px-10 py-3 shadow-sm">
             <div className="flex items-center gap-2">
               <div className="flex md:hidden">
                 {/* <Hamburger toggled={isOpen} toggle={setOpen} size={25} rounded /> */}
@@ -51,7 +51,7 @@ const Navbar = () => {
                   />
                 )}
               </div>
-              <p className="">Priyangsu B.</p>
+              <p className="text-background">Priyangsu B.</p>
             </div>
             <div className="hidden items-center justify-center gap-16 md:flex">
               {navItems.map((item, index) => (
@@ -63,7 +63,7 @@ const Navbar = () => {
                           className={`${
                             pathname === item.link
                               ? "font-bold text-blue-500"
-                              : "text-foreground"
+                              : "text-background"
                           }`}
                         >
                           {item.icon}
