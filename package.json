@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prod": "npm install --legacy-peer-deps && next build && next start"
+    "prod": "next build && next start"
   },
   "dependencies": {
     "@radix-ui/react-tooltip": "1.1.4",
