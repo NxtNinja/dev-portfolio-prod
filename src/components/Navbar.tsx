@@ -6,27 +6,27 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { AtSign, Briefcase, Code, House, Settings } from "lucide-react";
+import { Briefcase, Code, House, LampDesk, Settings } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import SwitchTheme from "./SwitchTheme";
 import { MobileNav } from "./MobileNav";
+import SwitchTheme from "./SwitchTheme";
 
 const Navbar = () => {
   const pathname = usePathname();
 
   const navItems = [
     { name: "Home", link: "/", icon: <House /> },
-    { name: "About", link: "/about", icon: <AtSign /> },
-    { name: "Skills", link: "/skills", icon: <Settings /> },
     { name: "Services", link: "/services", icon: <Briefcase /> },
+    { name: "Skills", link: "/skills", icon: <Settings /> },
+    { name: "Experience", link: "/experience", icon: <LampDesk /> },
     { name: "Projects", link: "/projects", icon: <Code /> },
   ];
   return (
     <>
-      <header className="mx-auto max-w-screen-lg px-6">
-        <div className="relative my-6 flex flex-col items-center justify-between gap-4">
-          <div className="sticky flex w-full items-center justify-between rounded-full text-background">
+      <header className="sticky top-0 z-50 mx-auto max-w-screen-lg bg-background/40 p-1 px-6 backdrop-blur-md">
+        <div className="my-6 flex flex-col items-center justify-between gap-4">
+          <div className="flex w-full items-center justify-between rounded-full text-background">
             <div className="flex items-center gap-2">
               <p className="text-2xl font-bold text-foreground">Priyangsu B.</p>
             </div>
@@ -39,7 +39,7 @@ const Navbar = () => {
                         <div
                           className={`p-3 ${
                             pathname === item.link
-                              ? "border-b-4 border-black text-foreground"
+                              ? "border-b-4 border-foreground text-foreground"
                               : "text-foreground"
                           }`}
                         >
