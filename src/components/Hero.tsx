@@ -48,21 +48,21 @@ const icons = [
 const Hero = () => {
   return (
     <>
-      <div className="grid min-h-[80dvh]">
+      <div className="grid h-[90dvh] md:h-[80dvh]">
         <div className="mx-auto flex max-w-lg flex-col items-center justify-center gap-5">
           <div className="flex flex-col items-center justify-center gap-4">
             <Image
               src={"/MY_PIC.avif"}
               alt="Priyangsu B."
-              className="h-32 w-32 rounded-full border-4 border-slate-200 grayscale"
+              className="motion-preset-pop motion-delay-500 h-32 w-32 rounded-full border-4 border-slate-200 grayscale"
               width={200}
               height={200}
             />
-            <p className="tracking-wider">
+            <p className="motion-preset-slide-left motion-duration-1000 tracking-wider">
               Hi, I&apos;m <span className="font-semibold">Priyangsu 👋</span>
             </p>
           </div>
-          <p className="text-center text-3xl font-bold text-foreground sm:text-5xl md:leading-[3.5rem]">
+          <p className="motion-preset-slide-right motion-duration-1000 text-center text-3xl font-bold text-foreground sm:text-5xl md:leading-[3.5rem]">
             Software engineer, building digital products and experience.
           </p>
           <div className="flex items-center justify-center gap-5 text-gray-800 dark:text-white">
@@ -74,6 +74,11 @@ const Hero = () => {
                       href={icon.link}
                       target="_blank"
                       rel="noopener noreferrer"
+                      className={`${
+                        index % 2 === 0
+                          ? "motion-preset-slide-right"
+                          : "motion-preset-slide-left"
+                      } motion-duration-1000`}
                     >
                       {icon.svg}
                     </Link>

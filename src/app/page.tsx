@@ -1,3 +1,4 @@
+import AboutMe from "@/components/AboutMe";
 import Hero from "@/components/Hero";
 import { indexPage } from "@/lib/seoData";
 import { Metadata } from "next";
@@ -10,6 +11,7 @@ const page = () => {
   return (
     <>
       <Hero />
+      <AboutMe />
     </>
   );
 };
