@@ -18,9 +18,9 @@ const Navbar = () => {
 
   const navItems = [
     { name: "Home", link: "/", icon: <House /> },
-    { name: "Services", link: "/services", icon: <Briefcase /> },
-    { name: "Skills", link: "/skills", icon: <Settings /> },
-    { name: "Projects", link: "/projects", icon: <Code /> },
+    { name: "Services", link: "/services/", icon: <Briefcase /> },
+    { name: "Skills", link: "/skills/", icon: <Settings /> },
+    { name: "Projects", link: "/projects/", icon: <Code /> },
   ];
   return (
     <>
