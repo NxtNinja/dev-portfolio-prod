@@ -11,6 +11,7 @@ import {
 import { AlignJustify } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 type MobileNavProps = {
   navItems: Array<{
@@ -22,10 +23,23 @@ type MobileNavProps = {
 
 export function MobileNav({ navItems }: MobileNavProps) {
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Close the sheet when the route changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
   return (
-    <Sheet>
+    <Sheet
+      open={isOpen}
+      onOpenChange={setIsOpen}
+    >
       <SheetTrigger asChild>
-        <AlignJustify className="cursor-pointer text-foreground" />
+        <AlignJustify
+          className="cursor-pointer text-foreground"
+          onClick={() => setIsOpen(!isOpen)}
+        />
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
@@ -42,6 +56,7 @@ export function MobileNav({ navItems }: MobileNavProps) {
                     ? "bg-foreground text-background"
                     : "text-foreground"
                 }`}
+                onClick={() => setIsOpen(false)} // Close sheet when clicking a link
               >
                 <div>{item.icon}</div>
                 <p className="">{item.name}</p>

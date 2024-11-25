@@ -5,11 +5,11 @@ const AboutMe = () => {
     <>
       <div className="flex flex-col justify-center md:h-[60dvh] md:flex-row md:items-center">
         <div className="flex flex-col gap-5">
-          <span className="motion-preset-blur-up motion-duration-1000 text-3xl font-bold md:text-5xl">
+          <span className="motion-preset-blur-up text-3xl font-bold motion-duration-1000 md:text-5xl">
             About Me
           </span>
           <Separator className="bg-foreground" />
-          <span className="motion-preset-blur-right motion-duration-1000 text-lg">
+          <span className="motion-preset-blur-right text-lg motion-duration-1000">
             I am a dedicated software engineer with a strong foundation in
             Computer Science. Skilled in{" "}
             <span className="font-bold">
@@ -21,7 +21,7 @@ const AboutMe = () => {
             creativity to deliver high-quality, impactful digital products.
           </span>
 
-          <span className="motion-preset-blur-left motion-duration-1000 text-lg">
+          <span className="motion-preset-blur-left text-lg motion-duration-1000">
             Beyond coding, I am passionate about staying ahead of industry
             trends, continually{" "}
             <span className="font-bold">

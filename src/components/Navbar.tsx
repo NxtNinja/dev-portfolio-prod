@@ -6,7 +6,8 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Briefcase, Code, House, LampDesk, Settings } from "lucide-react";
+
+import { Briefcase, Code, House, Settings } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MobileNav } from "./MobileNav";
@@ -19,7 +20,6 @@ const Navbar = () => {
     { name: "Home", link: "/", icon: <House /> },
     { name: "Services", link: "/services", icon: <Briefcase /> },
     { name: "Skills", link: "/skills", icon: <Settings /> },
-    { name: "Experience", link: "/experience", icon: <LampDesk /> },
     { name: "Projects", link: "/projects", icon: <Code /> },
   ];
   return (
@@ -28,7 +28,12 @@ const Navbar = () => {
         <div className="my-6 flex flex-col items-center justify-between gap-4">
           <div className="flex w-full items-center justify-between rounded-full text-background">
             <div className="flex items-center gap-2">
-              <p className="text-2xl font-bold text-foreground">Priyangsu B.</p>
+              <Link
+                href={"/"}
+                className="text-2xl font-bold text-foreground"
+              >
+                Priyangsu B.
+              </Link>
             </div>
             <div className="hidden items-center justify-center gap-16 md:flex">
               {navItems.map((item, index) => (

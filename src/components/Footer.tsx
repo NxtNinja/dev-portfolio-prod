@@ -57,22 +57,28 @@ const Footer = () => {
           </p>
           <div className="flex items-center justify-center gap-5">
             <Button
+              asChild
               className="flex items-center gap-2 rounded-full bg-background px-7 text-foreground hover:bg-background hover:underline"
-              onClick={() =>
-                (window.location.href = "mailto:priyangsubanik2003@gmail.com")
-              }
             >
-              <Mail />
-              Email me
+              <Link
+                href={"mailto:priyangsubanik2003@gmail.com"}
+                target="_blank"
+              >
+                <Mail />
+                Email Me
+              </Link>
             </Button>
             <Button
+              asChild
               className="rounded-full bg-background px-7 text-foreground hover:bg-background hover:underline"
-              onClick={() =>
-                (window.location.href =
-                  "https://wa.me/8420615746?text=Hello! I would like to hire you for my project.")
-              }
             >
-              Whatsapp
+              <Link
+                href={
+                  "https://wa.me/8420615746?text=Hello! I would like to hire you for my project"
+                }
+              >
+                Whatsapp
+              </Link>
             </Button>
           </div>
 
