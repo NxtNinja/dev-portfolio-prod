@@ -11,7 +11,7 @@ import Link from "next/link";
 const icons = [
   {
     label: "Github",
-    link: "https://github.com/NxtNinja", // Replace with your GitHub profile link
+    link: "https://github.com/NxtNinja",
     svg: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +28,7 @@ const icons = [
   },
   {
     label: "LinkedIn",
-    link: "https://www.linkedin.com/in/priyangsubanik/", // Replace with your LinkedIn profile link
+    link: "https://www.linkedin.com/in/priyangsubanik/",
     svg: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -43,53 +43,70 @@ const icons = [
       </svg>
     ),
   },
+  {
+    label: "Fiverr",
+    link: "https://www.fiverr.com/s/R70GkkR",
+    svg: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        x="0px"
+        y="0px"
+        width="50"
+        height="50"
+        viewBox="0 0 50 50"
+        className="fill-current"
+      >
+        <path d="M25,2C12.32,2,2,12.32,2,25s10.32,23,23,23s23-10.32,23-23S37.68,2,25,2z M34,36h-6V25h-4v11h-6V25h-4v-6h4.04 c0.37-4.96,3.54-8,8.46-8h2.53v6H26.5c-0.92,0-2.14,0-2.43,2H34V36z"></path>
+      </svg>
+    ),
+  },
 ];
 
 const Hero = () => {
   return (
     <>
-      <div className="grid h-[90dvh] md:h-[80dvh]">
-        <div className="mx-auto flex max-w-lg flex-col items-center justify-center gap-5">
-          <div className="flex flex-col items-center justify-center gap-4">
+      <div className="mx-auto flex max-w-lg flex-col items-center justify-center gap-5">
+        <div className="flex flex-col items-center justify-center gap-4">
+          <div className="relative">
             <Image
               src={"/MY_PIC.avif"}
               alt="Priyangsu B."
-              className="motion-preset-pop motion-delay-500 h-32 w-32 rounded-full border-4 border-slate-200 grayscale"
+              className="motion-preset-pop -z-50 h-32 w-32 rounded-full border-4 border-slate-200 grayscale motion-delay-500"
               width={200}
               height={200}
             />
-            <p className="motion-preset-slide-left motion-duration-1000 tracking-wider">
-              Hi, I&apos;m <span className="font-semibold">Priyangsu 👋</span>
-            </p>
           </div>
-          <p className="motion-preset-slide-right motion-duration-1000 text-center text-3xl font-bold text-foreground sm:text-5xl md:leading-[3.5rem]">
-            Software engineer, building digital products and experience.
+          <p className="motion-preset-slide-left tracking-wider motion-duration-1000">
+            Hi, I&apos;m <span className="font-semibold">Priyangsu 👋</span>
           </p>
-          <div className="flex items-center justify-center gap-5 text-gray-800 dark:text-white">
-            {icons.map((icon, index) => (
-              <TooltipProvider key={index}>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Link
-                      href={icon.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`${
-                        index % 2 === 0
-                          ? "motion-preset-slide-right"
-                          : "motion-preset-slide-left"
-                      } motion-duration-1000`}
-                    >
-                      {icon.svg}
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>{icon.label}</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            ))}
-          </div>
+        </div>
+        <p className="motion-preset-slide-right text-center text-3xl font-bold text-foreground motion-duration-1000 sm:text-5xl md:leading-[3.5rem]">
+          Software engineer, building digital products and experience.
+        </p>
+        <div className="flex items-center justify-center gap-5 dark:text-foreground">
+          {icons.map((icon, index) => (
+            <TooltipProvider key={index}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Link
+                    href={icon.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${
+                      index % 2 === 0
+                        ? "motion-preset-slide-right"
+                        : "motion-preset-slide-left"
+                    } motion-duration-1000`}
+                  >
+                    {icon.svg}
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{icon.label}</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          ))}
         </div>
       </div>
     </>
