@@ -71,7 +71,7 @@ const Hero = () => {
             <Image
               src={"/MY_PIC.avif"}
               alt="Priyangsu B."
-              className="motion-preset-pop -z-50 h-32 w-32 rounded-full border-4 border-slate-200 grayscale motion-delay-500"
+              className="motion-preset-pop -z-50 h-32 w-32 rounded-full border-4 border-slate-200 motion-delay-500"
               width={200}
               height={200}
             />
