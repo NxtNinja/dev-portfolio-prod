@@ -11,7 +11,7 @@ const page = () => {
   return (
     <>
       <div className="">
-        <div className="flex items-start justify-start">
+        <div className="flex items-start justify-start md:py-20">
           <Hero />
         </div>
         {/* <AboutMe /> */}
