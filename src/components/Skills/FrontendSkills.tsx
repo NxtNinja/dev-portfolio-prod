@@ -117,7 +117,7 @@ const FrontendSkills = () => {
   return (
     <>
       <div className="space-y-5">
-        <p className="text-2xl font-semibold">Frontend Skills</p>
+        <p className="text-xl font-semibold">Frontend Skills</p>
         <div className="grid grid-cols-4 place-items-start gap-5 md:grid-cols-5">
           {frontendSkills.map((skill) => (
             <div
@@ -125,9 +125,6 @@ const FrontendSkills = () => {
               className="motion-preset-slide-right flex w-full flex-col items-center justify-center duration-1000"
             >
               {skill.icon}
-              <p className="mt-2 text-center text-sm font-medium">
-                {skill.name}
-              </p>
             </div>
           ))}
         </div>

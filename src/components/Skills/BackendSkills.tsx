@@ -132,7 +132,7 @@ const BackendSkills = () => {
   return (
     <>
       <div className="space-y-5">
-        <p className="text-2xl font-semibold">Backend Skills</p>
+        <p className="text-xl font-semibold">Backend Skills</p>
         <div className="grid grid-cols-4 place-items-start gap-5 md:grid-cols-5">
           {backendSkills.map((skill) => (
             <div
@@ -140,9 +140,6 @@ const BackendSkills = () => {
               className="motion-preset-slide-right flex w-full flex-col items-center justify-center duration-1000"
             >
               {skill.icon}
-              <p className="mt-2 text-center text-sm font-medium">
-                {skill.name}
-              </p>
             </div>
           ))}
         </div>

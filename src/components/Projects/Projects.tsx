@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Badge } from "../ui/badge";
-import { Button } from "../ui/button";
-import { Link2 } from "lucide-react";
+import { SquareArrowOutUpRight } from "lucide-react";
 
 const Projects = () => {
   const projects = [
@@ -88,8 +87,8 @@ const Projects = () => {
   ];
   return (
     <>
-      <div className="grid w-full py-12">
-        <div className="flex w-full flex-col gap-4">
+      <div className="grid w-full">
+        <div className="flex min-h-[80dvh] w-full max-w-2xl flex-col justify-center gap-4">
           <div className="w-full space-y-3">
             <Badge
               variant="outline"
@@ -97,40 +96,39 @@ const Projects = () => {
             >
               ⚙️ Projects
             </Badge>
-            <p className="motion-preset-slide-down max-w-2xl text-3xl font-bold duration-1000 md:text-5xl">
+            <p className="motion-preset-slide-down max-w-2xl text-3xl font-bold duration-1000 md:text-3xl">
               Code with Character, Projects with Purpose
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 md:grid-cols-3">
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                className="motion-preset-slide-right flex w-full flex-col gap-3 rounded-3xl border border-foreground/40 p-4 duration-1000"
-              >
-                <Badge
-                  variant={"outline"}
-                  className="w-fit rounded-full"
+          <div className="w-full space-y-3">
+            <p className="motion-preset-slide-right text-2xl leading-8 tracking-wider text-foreground/60 motion-duration-1000 sm:text-xl">
+              Bringing Ideas to Life with Real-World Solutions
+            </p>
+            <p className="motion-preset-slide-right text-xl leading-8 tracking-wider text-foreground/60 motion-duration-1000 sm:text-lg">
+              Here are some of the projects I’ve worked on, combining
+              innovation, performance, and seamless user experience.
+            </p>
+          </div>
+          <div className="">
+            <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-2">
+              {projects.map((project, index) => (
+                <Link
+                  href={project.url}
+                  key={index}
+                  className="motion-preset-slide-right flex w-full flex-col gap-1 rounded-lg border border-foreground/40 p-4 duration-1000"
                 >
-                  {project.status}
-                </Badge>
-                <p className="text-xl font-semibold">{project.name}</p>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {project.description}
-                </p>
-
-                <Button
-                  asChild
-                  className="mt-auto w-fit rounded-full"
-                >
-                  <Link
-                    href={project.url}
-                    target="_blank"
-                  >
-                    Github Link <Link2 />
-                  </Link>
-                </Button>
-              </div>
-            ))}
+                  <div className="flex justify-between gap-3">
+                    <p className="line-clamp-1 text-base font-semibold">
+                      {project.name}
+                    </p>
+                    <SquareArrowOutUpRight />
+                  </div>
+                  <p className="line-clamp-1 text-gray-600 dark:text-gray-300">
+                    {project.description}
+                  </p>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </div>
