@@ -90,7 +90,7 @@ const Hero = () => {
               Diagnoeasy HealthTech
             </span>{" "}
             &{" "}
-            <span className="font-bold text-foreground">SIXTYNINE Agency</span>
+            {/* <span className="font-bold text-foreground">SIXTYNINE Agency</span> */}
           </p>
         </div>
         <div className="flex flex-col gap-2">
