@@ -10,8 +10,8 @@ export const generateMetadata = (): Metadata => {
 const page = () => {
   return (
     <>
-      <div className="space-y-32">
-        <div className="flex items-start justify-start py-20">
+      <div className="">
+        <div className="flex items-start justify-start">
           <Hero />
         </div>
         {/* <AboutMe /> */}
