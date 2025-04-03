@@ -1,4 +1,4 @@
-import AboutMe from "@/components/AboutMe";
+// import AboutMe from "@/components/AboutMe";
 import Hero from "@/components/Hero";
 import { indexPage } from "@/lib/seoData";
 import { Metadata } from "next";
@@ -14,7 +14,7 @@ const page = () => {
         <div className="flex items-start justify-start py-20">
           <Hero />
         </div>
-        <AboutMe />
+        {/* <AboutMe /> */}
       </div>
     </>
   );

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Badge } from "./ui/badge";
-import { Button } from "./ui/button";
 
 // Array of services
 const servicesList = [
@@ -16,7 +15,7 @@ const servicesList = [
         width="30"
         height="30"
         viewBox="0 0 30 30"
-        className="fill-current text-background"
+        className="fill-current text-foreground"
       >
         <path d="M10 29L10 29c-2.209 0-4-1.791-4-4l0 0c0-2.209 1.791-4 4-4h2.857C13.488 21 14 21.512 14 22.143V25C14 27.209 12.209 29 10 29zM20 9h-2.857C16.512 9 16 8.488 16 7.857V2.143C16 1.512 16.512 1 17.143 1H20c2.209 0 4 1.791 4 4l0 0C24 7.209 22.209 9 20 9zM10 1h2.857C13.488 1 14 1.512 14 2.143v5.714C14 8.488 13.488 9 12.857 9H10C7.791 9 6 7.209 6 5l0 0C6 2.791 7.791 1 10 1zM10 11h2.857C13.488 11 14 11.512 14 12.143v5.714C14 18.488 13.488 19 12.857 19H10c-2.209 0-4-1.791-4-4l0 0C6 12.791 7.791 11 10 11zM20 11A4 4 0 1020 19 4 4 0 1020 11z"></path>
       </svg>
@@ -38,7 +37,7 @@ const servicesList = [
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="fill-current text-background"
+        className="fill-current text-foreground"
       >
         <rect
           x="2"
@@ -79,7 +78,7 @@ const servicesList = [
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="fill-current text-background"
+        className="fill-current text-foreground"
       >
         <rect
           x="2"
@@ -115,7 +114,7 @@ const servicesList = [
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="fill-current text-background"
+        className="fill-current text-foreground"
       >
         <path d="M3 4h18v13H3z"></path>
         <path d="M8 21h8"></path>
@@ -139,7 +138,7 @@ const servicesList = [
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="fill-current text-background"
+        className="fill-current text-foreground"
       >
         <ellipse
           cx="12"
@@ -168,7 +167,7 @@ const servicesList = [
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="fill-current text-background"
+        className="fill-current text-foreground"
       >
         <path d="M20 17.58A5.5 5.5 0 0016.26 7 4.5 4.5 0 106 10.75"></path>
         <path d="M3 17h18"></path>
@@ -191,7 +190,7 @@ const servicesList = [
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="fill-current text-background"
+        className="fill-current text-foreground"
       >
         <path d="M6 6h15l-1.5 9h-11.1"></path>
         <circle
@@ -223,7 +222,7 @@ const servicesList = [
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="fill-current text-background"
+        className="fill-current text-foreground"
       >
         <rect
           x="2"
@@ -265,7 +264,7 @@ const servicesList = [
         width="30"
         height="30"
         viewBox="0 0 24 24"
-        className="fill-current text-background"
+        className="fill-current text-foreground"
       >
         <path d="M12 2L1.8 21.6h20.4zm0 3.6l6 12.3H6z"></path>
       </svg>
@@ -277,8 +276,8 @@ const servicesList = [
 const Services = () => {
   return (
     <>
-      <div className="grid w-full py-12">
-        <div className="flex w-full flex-col gap-4">
+      <div className="grid w-full">
+        <div className="flex min-h-[80dvh] w-full max-w-2xl flex-col justify-center gap-4">
           <div className="w-full space-y-3">
             <Badge
               variant="outline"
@@ -286,31 +285,57 @@ const Services = () => {
             >
               ⚙️ Services
             </Badge>
-            <p className="motion-preset-slide-down max-w-2xl text-3xl font-bold duration-1000 md:text-5xl">
+            <p className="motion-preset-slide-down max-w-2xl text-3xl font-bold duration-1000 md:text-3xl">
               Don&apos;t just build software, build experiences
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 md:grid-cols-3">
+          <div className="w-full space-y-3">
+            <p className="motion-preset-slide-right text-2xl leading-8 tracking-wider text-foreground/60 motion-duration-1000 sm:text-xl">
+              Bringing Your Ideas to Life with Scalable & Modern Solutions
+            </p>
+            <p className="motion-preset-slide-right text-xl leading-8 tracking-wider text-foreground/60 motion-duration-1000 sm:text-lg">
+              From websites to SaaS platforms, I build high-performance,
+              user-friendly, and scalable digital solutions tailored to your
+              needs.
+            </p>
+          </div>
+          <p className="text-xl">Services I offer -</p>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {servicesList.map((service, index) => (
-              <div
+              // <div
+              //   key={index}
+              //   className="motion-preset-slide-right flex w-full flex-col gap-3 rounded-3xl border border-foreground/40 p-4 duration-1000"
+              // >
+              //   <div className="flex items-center gap-3">
+              //     <div className="w-fit rounded-full bg-foreground p-3">
+              //       {service.icon}
+              //     </div>
+              //     <p className="text-xl font-semibold">{service.title}</p>
+              //   </div>
+              //   <p className="text-gray-600 dark:text-gray-300">
+              //     {service.description}
+              //   </p>
+              //   <Button className="w-fit rounded-full">
+              //     <Link
+              //       href={`https://wa.me/8420615746?text=Hello! I would like to hire you for ${service.title} related project`}
+              //     >
+              //       Let&apos;s talk
+              //     </Link>
+              //   </Button>
+              // </div>
+              <ul
+                className="ml-6 list-disc space-y-3"
                 key={index}
-                className="motion-preset-slide-right flex w-full flex-col gap-3 rounded-3xl border border-foreground/40 p-4 duration-1000"
               >
-                <div className="w-fit rounded-full bg-foreground p-3">
-                  {service.icon}
-                </div>
-                <p className="text-xl font-semibold">{service.title}</p>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {service.description}
-                </p>
-                <Button className="w-fit rounded-full">
+                <li className="motion-preset-slide-right text-xl leading-8 tracking-wider text-foreground/60 motion-duration-1000 sm:text-lg">
                   <Link
                     href={`https://wa.me/8420615746?text=Hello! I would like to hire you for ${service.title} related project`}
+                    className="flex items-center gap-2"
                   >
-                    Let&apos;s talk
+                    {service.title}
                   </Link>
-                </Button>
-              </div>
+                </li>
+              </ul>
             ))}
           </div>
         </div>
